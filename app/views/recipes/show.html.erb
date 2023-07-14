@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title>Receitas</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+      .body-bg {
+        background: linear-gradient(to bottom right, #FCA8A8, #7C8DDA);
+      }
+    </style>
+  </head>
+  <body class="body-bg min-h-screen pb-6 px-2 md:px-0" style="font-family:'Lato',sans-serif;">
+    <div class="mt-10 flex flex-col items-center justify-center">
+      <div class="bg-white mt-10 p-8 rounded-lg shadow-lg max-w-screen-md">
+        <h2 class="text-xl text-rose-400 font-semibold mb-2"><%= @recipe.title %></h2>
+        <p class="whitespace-pre-line"><%= @recipe.instructions %></p>
+        <div class="flex mt-4">
+          <%= link_to 'Editar', edit_recipe_path(@recipe), class: "text-gray-600 font-semibold hover:text-gray-800 mr-4" %>
+          <%= button_to 'Excluir', recipe_path(@recipe), method: :delete, data: { confirm: 'Tem certeza que deseja excluir essa receita?' }, class: "text-gray-600 font-semibold hover:text-gray-800" %>
+          <%= link_to 'Voltar', recipes_path, class: "text-gray-600 font-semibold hover:text-gray-800 ml-auto" %>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title>Receitas</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+      .body-bg {
+        background: linear-gradient(to bottom right, #FCA8A8, #7C8DDA);
+      }
+    </style>
+  </head>
+  <body class="body-bg min-h-screen pb-6 px-2 md:px-0" style="font-family:'Lato',sans-serif;">
+    <header class="flex justify-between items-center px-4 py-4 bg-black bg-opacity-20">
+      <div class="flex items-center">
+        <h1 class="ml-2 text-white font-bold text-3xl">Bloguinho</h1>
+      </div>
+      <div class="absolute inset-x-0 flex items-center justify-center"  style="pointer-events: none;">
+        <h1 class="text-white font-bold text-xl">Receitas</h1>
+      </div>
+      <div class="flex items-center ">
+        <%= link_to "Categorias", categories_path, class: "text-white font-bold ml-4 hover:underline" %>
+      </div>
+    </header>
+    <div class="mt-10 flex flex-col items-center justify-center w-screen">
+      <%= link_to 'Criar Nova Receita', new_recipe_path, class: "font-bold text-white px-4 py-2 rounded mt-4" %>
+      <div class=" bg-white mt-10 p-8 rounded-lg shadow-lg">
+        <% @recipes.each do |recipe| %>
+          <h2 class="text-xl text-rose-400 hover:underline font-semibold mb-2"><%= link_to recipe.title, recipe_path(recipe) %></h2>
+          <hr class="my-4">
+        <% end %>
+      </div>
+    </div>
+  </body>
+</html>
