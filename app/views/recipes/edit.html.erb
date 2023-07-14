@@ -13,7 +13,7 @@
   </head>
   <body class="body-bg min-h-screen pb-6 px-2 md:px-0" style="font-family:'Lato',sans-serif;">
     <div class="mt-10 flex flex-col items-center justify-center">
-      <div class="bg-white mt-10 p-8 rounded-lg shadow-lg max-w-screen-md">
+      <div class="w-1/2 bg-white mt-10 p-8 rounded-lg shadow-lg max-w-screen-md">
         <h1 class="text-3xl text-rose-400 font-semibold mb-6">Editar Receita</h1>
         <%= form_with(model: @recipe, url: recipe_path(@recipe), method: :patch) do |form| %>
           <div class="mb-4">
@@ -22,17 +22,17 @@
           </div>
           <div class="mb-4">
             <%= form.label :instructions, "Instruções", class: "block text-gray-700 text-sm font-semibold mb-2" %>
-            <%= form.text_area :instructions, class: "block w-full px-4 py-2 border border-gray-300 rounded-md resize-none focus:outline-none focus:ring focus:ring-violet-500 focus:border-violet-500", placeholder: "Instruções da Receita" %>
+            <%= form.text_area :instructions, rows: 6, class: "block w-full px-4 py-2 border border-gray-300 rounded-md resize-none focus:outline-none focus:ring focus:ring-violet-500 focus:border-violet-500", placeholder: "Instruções da Receita" %>
           </div>
           <div class="mb-4">
             <%= form.label :category_id, "Categoria", class: "block text-gray-700 text-sm font-semibold mb-2" %>
             <%= form.collection_select :category_id, Category.all, :id, :name, { prompt: "Selecione uma categoria" }, class: "block w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring focus:ring-violet-500 focus:border-violet-500" %>
           </div>
-          <div class="flex justify-end">
-            <%= form.submit @recipe.new_record? ? 'Criar Receita' : 'Atualizar Receita', class: "px-6 py-2 bg-rose-400 text-white font-semibold rounded-md hover:bg-rose-500 focus:outline-none focus:bg-violet-600" %>
+          <div class="flex">
+            <%= link_to 'Voltar', recipes_path, class: "grow block text-gray-600 text-sm font-semibold mt-4 hover:text-gray-800" %>
+            <%= form.submit @recipe.new_record? ? 'Criar Receita' : 'Atualizar Receita', class: "flex-none px-6 py-2 bg-rose-400 text-white font-semibold rounded-md hover:bg-rose-500 focus:outline-none focus:bg-violet-600" %>
           </div>
         <% end %>
-        <%= link_to 'Voltar', recipes_path, class: "block text-gray-600 text-sm font-semibold mt-4 hover:text-gray-800" %>
       </div>
     </div>
   </body>
