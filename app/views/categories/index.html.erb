@@ -26,15 +26,19 @@
     <div class="mt-10 flex flex-col items-center justify-center w-screen">
       <%= link_to 'Criar Nova Categoria', new_category_path, class: "font-semibold text-white hover:underline px-4 py-2 rounded mt-4" %>
       <div class="grid gap-4 grid-cols-3 bg-white mt-10 p-8 rounded-lg shadow-lg">
-        <% @categories.each do |category| %>
-          <div class="mb-2 flex flex-col items-center justify-center">
-            <h2 class="text-xl text-rose-400 hover:underline font-semibold mb-2"><%= link_to category.name, category_path(category) %></h2>
-            <div class="flex">
-              <%= link_to 'Editar', edit_category_path(category), class: "text-gray-600 font-semibold hover:text-gray-800 mr-2" %>
-              <%= button_to 'Excluir', category_path(category), method: :delete, data: { confirm: 'Tem certeza que deseja excluir essa categoria?' }, class: "text-gray-600 font-semibold hover:text-gray-800" %>
+        <% if @categories.any? %>
+          <% @categories.each do |category| %>
+            <div class="mb-2 flex flex-col items-center justify-center">
+              <h2 class="text-xl text-rose-400 hover:underline font-semibold mb-2"><%= link_to category.name, category_path(category) %></h2>
+              <div class="flex">
+                <%= link_to 'Editar', edit_category_path(category), class: "text-gray-600 font-semibold hover:text-gray-800 mr-2" %>
+                <%= button_to 'Excluir', category_path(category), method: :delete, data: { confirm: 'Tem certeza que deseja excluir essa categoria?' }, class: "text-gray-600 font-semibold hover:text-gray-800" %>
+              </div>
+              <hr class="my-4">
             </div>
-            <hr class="my-4">
-          </div>
+          <% end %>
+        <% else %>
+          <p class="text-center text-gray-500">Não existe nenhuma categoria.</p>
         <% end %>
       </div>
     </div>
