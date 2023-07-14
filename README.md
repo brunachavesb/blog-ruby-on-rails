@@ -1,24 +1,10 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+## BLOG DE RECEITAS FEITO COM RUBY ON RAILS
 
-Things you may want to cover:
+Comandos recomendados antes de iniciar a aplicação:
+- bundle install
+- rails db:migrate
 
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+Comandos para iniciar o servidor: 
+- ./bin/dev ou rails server
